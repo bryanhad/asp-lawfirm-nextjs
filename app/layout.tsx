@@ -3,6 +3,7 @@ import { Inter } from "next/font/google"
 import "./globals.css"
 import Topbar from "@/components/shared/navbar/Topbar"
 import { NavbarContextProvider } from "@/contexts/navbar.context"
+import MaxWidthContainer from "@/components/shared/MaxWidthContainer"
 
 const inter = Inter({ subsets: ["latin"] })
 
@@ -37,11 +38,11 @@ export default function RootLayout({
 }) {
     return (
         <html lang="en">
-            <body className={`${inter.className} antialiased`}>
+            <body className={`${inter.className} antialiased flex flex-col min-h-screen`}>
                 <NavbarContextProvider>
                     <Topbar />
                 </NavbarContextProvider>
-                <main className="mt-[72px]">{children}</main>
+                <main className="flex-[1] mt-[72px] flex flex-col items-center">{children}</main>
                 {/* <Bottombar /> */}
             </body>
         </html>
